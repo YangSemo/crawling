@@ -80,20 +80,12 @@ with open(csv_file_name, 'w', encoding='utf-8-sig', newline='') as f:
         try:
             for tr in tbody.find_elements_by_tag_name('tr'):
                 td = tr.find_elements_by_tag_name('td') # 해당 tr에 td 추출
-                if td[0].text == '평균':
-                    table_list.append(selUpjong_kor)
-                    table_list.append(mid_select[i])
-                    table_list.append(td[0].text)
-                    table_list.append(td[1].text)
-                    table_list.append(td[6].text)
-                    i += 1
+                table_list.append(selUpjong_kor)
+                table_list.append(mid_select[i])
+                table_list.append(td[0].text)
+                table_list.append(td[1].text)
+                table_list.append(td[6].text)
 
-                else:
-                    table_list.append(selUpjong_kor)
-                    table_list.append('')
-                    table_list.append(td[0].text)
-                    table_list.append(td[1].text)
-                    table_list.append(td[6].text)
 
                 print(table_list) # 잘 추출 되는지 확인
                 w.writerow(table_list)  # csv 파일에 저장
@@ -101,6 +93,8 @@ with open(csv_file_name, 'w', encoding='utf-8-sig', newline='') as f:
 
         except:
                print('error')
+
+        i += 1  # 중분류(한글명) 인덱스 증가
 
         # browser 완료되면 종료
         browser.close()
