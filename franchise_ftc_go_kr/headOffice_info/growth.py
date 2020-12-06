@@ -5,8 +5,8 @@ import csv
 
 # csv 파일명
 # csv_file_name = './본사_성장성/외식.csv'
-csv_file_name = './본사_성장성/도소매.csv'
-# csv_file_name = './본사_성장성/서비스.csv'
+# csv_file_name = './본사_성장성/도소매.csv'
+csv_file_name = './본사_성장성/서비스.csv'
 
 # 대분류 value값
 # selUpjong_value = '21'
