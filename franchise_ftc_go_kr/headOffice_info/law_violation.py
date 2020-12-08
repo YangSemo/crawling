@@ -4,29 +4,29 @@ import time
 import csv
 
 # csv 파일명
-csv_file_name = './본사_안전성/외식.csv'
+# csv_file_name = './본사_안전성/외식.csv'
 # csv_file_name = './본사_안전성/도소매.csv'
-# csv_file_name = './본사_안전성/서비스.csv'
+csv_file_name = './본사_안전성/서비스.csv'
 
 # 대분류 value값
-selUpjong_value = '21'
+# selUpjong_value = '21'
 # selUpjong_value = '22'
-# selUpjong_value = '23'
+selUpjong_value = '23'
 
 # 대분류 한글명
-selUpjong_kor='외식'
+# selUpjong_kor='외식'
 # selUpjong_kor='도소매'
-# selUpjong_kor='서비스'
+selUpjong_kor='서비스'
 
 # 중분류 리스트(value값)
-selIndus_list = ['A1','B1','C1','D1','E1','F1','G1','H1','I1','J1','K1','L1','M1','N1','O1']
+# selIndus_list = ['A1','B1','C1','D1','E1','F1','G1','H1','I1','J1','K1','L1','M1','N1','O1']
 # selIndus_list = ['A2','B2','C2','D2','E2','F2','G2']
-# selIndus_list = ['A3','B3','C3','D3','E3','F3','G3','O ','H3','I3','J3','K3','L3','M3','N3','O3','P3','Q3','R3','S3','T3','U3']
+selIndus_list = ['A3','B3','C3','D3','E3','F3','G3','O ','H3','I3','J3','K3','L3','M3','N3','O3','P3','Q3','R3','S3','T3','U3']
 
 # 중분류 리스트(한글명)
-mid_select = ['한식','분식','중식','일식','서양식','기타외국식','패스트푸드','치킨','피자','제과제빵','아이스크림_빙수','커피','음료','주점','기타외식']
+# mid_select = ['한식','분식','중식','일식','서양식','기타외국식','패스트푸드','치킨','피자','제과제빵','아이스크림_빙수','커피','음료','주점','기타외식']
 # mid_select = ['편의점', '의류패션','화장품','농수산물','건강식품','종합소매점','기타도소매']
-# mid_select = ['교육_교과','교육_외국어','교육_기타','교육외_유아','부동산중개','임대','숙박','유아','스포츠','이미용','자동차','PC방','오락','배달','안경','세탁','이사','운송','반려동물','약국','인력파견','기타서비스']
+mid_select = ['교육_교과','교육_외국어','교육_기타','교육외_유아','부동산중개','임대','숙박','유아','스포츠','이미용','자동차','PC방','오락','배달','안경','세탁','이사','운송','반려동물','약국','인력파견','기타서비스']
 
 # 비교항목(성장성, 안정성, 수익성)
 # item = 'listHq01'
@@ -78,6 +78,8 @@ with open(csv_file_name, 'w', encoding='utf-8-sig', newline='') as f:
 
         # tr 태그 추출 후 td를 table_list에 저장
         try:
+            # trs = tbody.find_elements_by_tag_name(tr) 선언 하고 for문 돌리는 것 보다
+            # for문에 바로 tbody.find_elements_by_tag_name('tr') 하는 것이 더 빠름
             for tr in tbody.find_elements_by_tag_name('tr'):
                 td = tr.find_elements_by_tag_name('td') # 해당 tr에 td 추출
 

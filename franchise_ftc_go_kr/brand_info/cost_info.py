@@ -78,6 +78,8 @@ with open(csv_file_name, 'w', encoding='utf-8-sig', newline='') as f:
 
         # tr 태그 추출 후 td를 table_list에 저장
         try:
+            # trs = tbody.find_elements_by_tag_name(tr) 선언 하고 for문 돌리는 것 보다
+            # for문에 바로 tbody.find_elements_by_tag_name('tr') 하는 것이 더 빠름
             for tr in tbody.find_elements_by_tag_name('tr'):
                 td = tr.find_elements_by_tag_name('td') # 해당 tr에 td 추출
                 table_list.append(selUpjong_kor)
